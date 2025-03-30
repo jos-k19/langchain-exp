@@ -1,5 +1,6 @@
 python-dotenv
 langchain
+langchain-community
 openai
 google-api-python-client # Google API
 google-search-results # SerpAPI
@@ -11,7 +12,6 @@ wikipedia
 psycopg2
 pinecone-client
 pgvector
-langchain_community
 langchain_groq
 slack-sdk 
 slack-bolt 
