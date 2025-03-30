@@ -1,6 +1,8 @@
+import os
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
 from dotenv import find_dotenv, load_dotenv
+from langchain_groq import ChatGroq
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,
@@ -9,9 +11,15 @@ from langchain.prompts.chat import (
 
 load_dotenv(find_dotenv())
 
+groq_api_key = os.getenv("GROQ_API_KEY")
+
 
 def draft_email(user_input, name="Dave"):
-    chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
+    # chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
+    chat = ChatGroq(
+    temperature=0,
+    groq_api_key = groq_api_key,
+    model_name = 'llama-3.3-70b-versatile')
 
     template = """
     
